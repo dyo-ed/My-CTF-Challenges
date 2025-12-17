@@ -2,7 +2,7 @@
 
 ## 🎯 Challenge Goal
 
-To perform a analysis on the provided audio recording to uncover hidden information. You must determine what secrets the musician has embedded within the sound waves and ultimately extract the flag in the format `lspu{flag here}`.
+To perform a analysis on the provided audio recording to uncover hidden information. You must determine what secrets the musician has embedded within the sound waves and ultimately extract the flag in the format `lspu{flag_here}`.
 
 ## 📜 Scenario
 
@@ -12,3 +12,4 @@ At first, the tune sounds perfectly normal. But the longer they listen, the more
 
 The student has turned to you for help to investigate this anomaly.
 Can you uncover what the music is hiding?
+
