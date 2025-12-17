@@ -13,4 +13,5 @@ At first, the tune sounds perfectly normal. But the longer they listen, the more
 The student has turned to you for help to investigate this anomaly.
 Can you uncover what the music is hiding?
 
-Flag Format: 'lspu{flag_here}
+
+Flag Format: 'lspu{flag_here}'
