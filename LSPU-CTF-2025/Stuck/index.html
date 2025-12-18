@@ -1,0 +1,177 @@
+<!--Frederick Acaylar is a good boy -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTF Login</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 20% 20%, #2a2a3b, #0f0f17 55%);
+      color: #f0f0f0;
+    }
+    .card {
+      width: min(420px, 90vw);
+      padding: 28px 32px;
+      background: rgba(20, 20, 30, 0.9);
+      border: 1px solid #2f2f44;
+      border-radius: 12px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    p {
+      margin: 0 0 18px;
+      color: #c7c7d8;
+      font-size: 0.95rem;
+    }
+    label {
+      display: block;
+      margin: 0 0 6px;
+      font-size: 0.92rem;
+      color: #dcdcee;
+    }
+    form {
+      width: 100%;
+    }
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #383850;
+      background: #141422;
+      color: #f5f5ff;
+      font-size: 1rem;
+      transition: border-color 120ms ease;
+    }
+    input:focus {
+      outline: none;
+      border-color: #7a7aff;
+      box-shadow: 0 0 0 3px rgba(122, 122, 255, 0.15);
+    }
+    .field {
+      margin-bottom: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 12px 14px;
+      margin-top: 4px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #7a7aff, #4c7dff);
+      color: #0d0d18;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 120ms ease, opacity 120ms ease;
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+    .hint {
+      margin-top: 14px;
+      font-size: 0.86rem;
+      color: #a8a8be;
+    }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-backdrop.is-visible {
+      display: flex;
+    }
+    .modal {
+      width: min(360px, 90vw);
+      padding: 20px 22px;
+      background: rgba(14, 14, 24, 0.96);
+      border-radius: 12px;
+      border: 1px solid #ff4c7a44;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      text-align: left;
+    }
+    .modal-title {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+      color: #ff8aa6;
+    }
+    .modal-body {
+      margin: 0 0 14px;
+      font-size: 0.9rem;
+      color: #dcdcee;
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .modal-close-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #ff4c7a;
+      color: #0b0b16;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .modal-close-btn:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1 align="center">Welcome</h1>
+    <p align="center">Enter your credentials to access the challenge panel</p>
+
+    <form id="login-form" autocomplete="off">
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" required placeholder="ctf-player">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required placeholder="********">
+      </div>
+      <button id="login-btn" type="submit" disabled>Submit</button>
+      <p class="hint">Hint: Only the correct combo unlocks the next step.</p>
+    </form>
+  </main>
+
+  <div id="error-modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="error-modal-title">
+    <div class="modal">
+      <h2 id="error-modal-title" class="modal-title">Login failed</h2>
+      <p class="modal-body">The username or password you entered is incorrect. Please try again.</p>
+      <div class="modal-actions">
+        <button type="button" id="error-modal-close" class="modal-close-btn">Got it</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
